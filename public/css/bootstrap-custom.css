@@ -1,0 +1,25 @@
+.form-horizontal .control-group {
+    margin-bottom: 8px;
+}
+
+.route-register-button {
+    margin-left: 8px;
+}
+
+.course-type-label {
+    margin-left: 8px;
+}
+
+
+input[type="address"] {
+    size:10;
+    border-radius: 4px 4px 4px 4px;
+    color: #555555;
+    display: inline-block;
+    font-size: 15px;
+    width : 120px;
+    height : 20px;
+    margin: 0px;
+    padding: 1px 8px;
+    vertical-align: middle;
+}

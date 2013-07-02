@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>ATND フルカレンダー</title>
+        <link rel='stylesheet' type='text/css' href='css/bootstrap.min.css'/>
         <link rel='stylesheet' type='text/css' href='css/fullcalendar.css'/>
         <link rel='stylesheet' type='text/css' href='css/application.css'/>
+        <link rel='stylesheet' type='text/css' href='css/progressbar.css'/>
  
         <script type='text/javascript' src='js/jquery.js'></script>
         <script type='text/javascript' src='js/fullcalendar.min.js'></script>
         <script type='text/javascript' src='js/underscore.js'></script>
         <script type='text/javascript' src='js/backbone.js'></script>
+        <script type='text/javascript' src='js/backbone.localStorage.js'></script>
         <script type='text/javascript' src='js/application.js'></script>
     <style>
     	body {
@@ -24,10 +28,22 @@
     </style>
     </head>
     <body>
+        <h1>ATND フルカレンダー</h1>
         <div id='searchForm'>
-            <input type="text" />
+            <form onsubmit="return false">
+            <input id ="keyword" type="text" />
             <input type="submit" value="検索">
+            <div class="meter-wrap">
+                <div class="meter-value" style="background-color: #0a0; width: 0%;">
+                    <div class="meter-text">
+                        0%
+                    </div>
+                </div>
+            </div>
+            </form>
         </div>
         <div id='calendar'></div>
+        <hr>
+        <footer>@dokechin</footer>
     </body>
 </html>

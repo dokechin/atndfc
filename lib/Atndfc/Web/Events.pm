@@ -2,6 +2,7 @@ package Atndfc::Web::Events;
 use Mojo::Base 'Mojolicious::Controller';
 use WebService::Simple;
 use Data::Dumper;
+use Date::Parse;
 
 # This action will render a template
 sub index {
@@ -15,7 +16,7 @@ sub index {
 
     my $atnd = WebService::Simple->new(
            base_url => "http://api.atnd.org/events/",
-           param    => { format => "json", keyword => $query, count=>100},
+           param    => { format => "json", ymd => $start, keyword => $query, count=>100},
            response_parser => 'JSON',
     );
 
@@ -28,7 +29,7 @@ sub index {
     my @events = @{$json->{events}};
   my @json =();
   for my $event(@events){
-      push @json, { title => $event->{"title"}, start => $event->{"started_at"}, end => $event->{"ended_at"}};
+      push @json, { title => $event->{"title"}, allDay => Mojo::JSON->false , start => str2time($event->{"started_at"}), end => str2time($event->{"ended_at"})};
   }
 
   $self->render(json => \@json);
